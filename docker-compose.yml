@@ -27,9 +27,7 @@ services:
       retries: 5
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME}/three-tier-backend:latest
     container_name: backend
     restart: always
     environment:
@@ -49,9 +47,7 @@ services:
         condition: service_healthy
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME}/three-tier-frontend:latest
     container_name: frontend
     restart: always
     environment:
